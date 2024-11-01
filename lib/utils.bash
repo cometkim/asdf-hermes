@@ -38,7 +38,7 @@ function get_platform() {
 function get_arch() {
   case "$(uname -m)" in
     x86_64) echo -n "amd64" ;;
-    aarch64|arm64) echo -n "arm64" ;;
+    arm64) echo -n "arm64" ;;
     *) fail "Unsupported architecture" ;;
   esac
 }
@@ -51,7 +51,7 @@ function get_archive_name() {
   arch=$(get_arch)
 
   if [[ "$platform" = "linux" && "$arch" != "amd64" ]]; then
-    fail "Unsupported architecture"
+    fail "Unsupported architecture; Only x86_64 is supported for Linux"
   fi
 
   if [[ "$platform" = "darwin" && "$arch" != "arm64" ]]; then
