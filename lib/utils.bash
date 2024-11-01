@@ -67,7 +67,7 @@ function get_archive_url() {
   local archive_name
   archive_name=$(get_archive_name)
 
-  if semver_compare "0.13.0" "$version"; then
+  if [[ "$version" == "latest" || $(semver_compare "0.13.0" "$version") -ge 0 ]]; then
     echo -n "$REPO_URL/releases/download/v$version/$archive_name.tar.gz"
   else
     echo -n "$REPO_URL/releases/download/v$version/$archive_name-v$version.tar.gz"
