@@ -11,7 +11,7 @@
 ## Installation
 
 ```bash
-asdf plugin add https://github.com/cometkim/asdf-hermes.git
+asdf plugin add hermes
 ```
 
 ## Usage
